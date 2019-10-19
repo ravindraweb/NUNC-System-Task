@@ -2,9 +2,70 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Form</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/responsive.css">
 </head>
 <body>
 
+<div class="form_wrapper">
+	<form role="form" class="createform"  onsubmit="Fn_submit();">
+	    <h3>NUNC Systems</h3>
+	    <fieldset>
+	      <input type="text" placeholder="Name" id="Name" onkeyup="this.value=this.value.replace(/[^A-Za-z]/g,'');" required />
+	    </fieldset>
+	    <fieldset>
+	      <input type="text" placeholder="Surname" id="Surname" onkeyup="this.value=this.value.replace(/[^A-Za-z]/g,'');"  required />
+	    </fieldset>
+	    <fieldset>
+	      <input type="email" placeholder="Email" id="email" pattern="^([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$" required />
+	    </fieldset>
+	    <fieldset>
+	      <input type="tel" placeholder="Phone Number"  id="phnum" required onkeyup="this.value=this.value.replace(/[^+ | 0-9]/g,'');" />
+	    </fieldset>
+	    <fieldset>
+	      <input type="text" placeholder="Password" id="password" required onkeyup="this.value=this.value.replace((?=.{8,})(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).*$);" />
+	      <p class="password-error"></p>
+	    </fieldset>
+	    <fieldset>
+	    	<input type="submit" value="Submit">
+	    </fieldset>
+	  </form>
+</div>
+
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+
+<script type="text/javascript">
+	// Form validation
+var form_wrapper = function() {
+  debugger;
+	$('#phnum').on('keyup', function(){
+
+	    if($(this).val().length == 1 || ($(this).val().length == 2 && $('#phnum').val().charAt($('#phnum').val().length-1) == "0" ))
+	    	$(this).val('+' + $('#phnum').val());
+	});
+
+	$('form').submit(function() {
+	    var password = $('#password').val();
+	    if(password === "") {
+	      $('.password-error').text('Please enter a password.')
+	    };
+	    
+	    if( password.length < 8 && password.length > 1){
+	        $('.password-error').text('must be at least 8 long and contain at least 1 special character.')
+	    }
+	    return false;
+	});
+}
+function Fn_submit() {
+  alert("The form was submitted");
+  return false;
+}
+
+$(document).ready(form_wrapper);
+</script>
 </body>
 </html>

@@ -1,0 +1,38 @@
+@media (min-width: 320px ) and (max-width: 767px){
+    .col{
+        margin-bottom: 20px;
+        width: 100%;
+    }
+    #flowerImg, #flowerImg2, #flowerImg3, #flowerImg4{width: auto !important}
+}
+
+@media (min-width: 768px) {
+    .wrapper {
+         max-width: 960px;
+    }
+    .col{
+        -ms-flex: 0 0 45%;
+        flex: 0 0 45%;
+        max-width: 45%;
+        margin-bottom: 40px;
+    }
+     #flowerImg, #flowerImg2, #flowerImg3, #flowerImg4{width: auto !important}
+    
+}
+@media (min-width: 992px ) and (max-width: 1199px){
+    #flowerDiv, #flowerDiv2, #flowerDiv3, #flowerDiv4{height: 140px;}
+}
+@media (min-width: 992px) {
+    .col{
+        -ms-flex: 0 0 23%;
+        flex: 0 0 23%;
+        max-width: 23%;
+        margin-bottom: 10px;
+    }
+}
+@media (min-width: 1200px){
+    .wrapper {
+        max-width: 1140px;
+    }
+    .col{margin-bottom: 10px;}
+}
