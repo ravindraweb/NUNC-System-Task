@@ -50,20 +50,18 @@ var form_wrapper = function() {
 
 	$('form').submit(function() {
 	    var password = $('#password').val();
-	    if(password === "") {
-	      $('.password-error').text('Please enter a password.')
-	    };
 	    
-	    if( password.length < 8 && password.length > 1){
+	    if( password.length < 8 && password.length > 1 ){
 	        $('.password-error').text('must be at least 8 long and contain at least 1 special character.')
+	    }
+	    else{
+	    	$('.password-error').style("display", "none")
 	    }
 	    return false;
 	});
+
 }
-function Fn_submit() {
-  alert("The form was submitted");
-  return false;
-}
+
 
 $(document).ready(form_wrapper);
 </script>
